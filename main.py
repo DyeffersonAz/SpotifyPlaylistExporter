@@ -3,6 +3,7 @@
 import spotifier
 import json
 import tracks_parser
+import downloader
 
 spotifier.auth("21db2xi7bbketgljwabmna7wa")
 
@@ -13,4 +14,4 @@ with open("tracks.json", 'w') as jsonfile:
 with open("tracks.json", "r") as jsonfile:
     jsonraw = jsonfile.read()
 
-tracks_parser.list_into_file(tracks_parser.parse(jsonraw))
+downloader.download_list(tracks_parser.parse(jsonraw))

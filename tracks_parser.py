@@ -6,7 +6,7 @@ def parse(sjsonfile):
     jsonfile = json.loads(sjsonfile)
     songs = []
     for track in jsonfile:
-        songs.append(track['track']['name'])
+        songs.append(f"{track['track']['name']} {track['track']['artists'][0]['name']}")
     return songs
 
 def list_into_file(songs):

@@ -127,3 +127,4 @@ dmypy.json
 #privacy ignores
 *cache*
 tokens.py
+songs
