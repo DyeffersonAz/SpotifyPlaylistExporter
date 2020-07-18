@@ -5,9 +5,9 @@ import os
 import pathlib
 
 cwd = os.getcwd()
-print(cwd)
 
 def download(search):
+    """Downloads from YouTube based on a search"""
     try:
         ydl_opts = {
             "format" : "bestaudio/best",
@@ -23,6 +23,7 @@ def download(search):
     except:
         pass
 
-def download_list(songs):
-    for song in songs:
+def download_list(searches):
+    """Downloads from YouTube based on a list of search queries"""
+    for song in searches:
         download(song)
