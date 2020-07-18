@@ -7,7 +7,11 @@ import pathlib
 cwd = os.getcwd()
 
 def download(search):
-    """Downloads from YouTube based on a search"""
+    """Downloads from YouTube based on a search
+
+    Args:
+        search (string): A search query
+    """
     try:
         ydl_opts = {
             "format" : "bestaudio/best",
@@ -24,6 +28,10 @@ def download(search):
         pass
 
 def download_list(searches):
-    """Downloads from YouTube based on a list of search queries"""
+    """Downloads from YouTube based on a list of search queries
+
+    Args:
+        searches (list): List of strings containing search queries
+    """
     for song in searches:
         download(song)
