@@ -14,9 +14,4 @@ spotifier.auth(cnfg.get("SPOTIFY", "USERNAME"))
 
 savedTracks = spotifier.get_saved_tracks()
 
-with open("tracks.json", 'w') as jsonfile:
-    jsonfile.write(json.dumps(savedTracks))
-with open("tracks.json", "r") as jsonfile:
-    jsonraw = jsonfile.read()
-
-downloader.download_list(tracks_parser.parse(jsonraw))
+downloader.download_list(tracks_parser.parse(json.dumps(savedTracks)))
