@@ -4,8 +4,13 @@ import spotifier
 import json
 import tracks_parser
 import downloader
+import configparser
 
-spotifier.auth("21db2xi7bbketgljwabmna7wa")
+cnfg = configparser.ConfigParser()
+
+cnfg.read("config.cfg")
+
+spotifier.auth(cnfg.get("SPOTIFY", "USERNAME"))
 
 savedTracks = spotifier.get_saved_tracks()
 
