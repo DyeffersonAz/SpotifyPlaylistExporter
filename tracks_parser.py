@@ -14,7 +14,7 @@ def parse(sjsonfile):
     jsonfile = json.loads(sjsonfile)
     songs = []
     for track in jsonfile:
-        songs.append(f"{track['track']['name']} {track['track']['artists'][0]['name']}")
+        songs.append(f"{track['track']['name']} {artists(sjsonfile, jsonfile.index(track))}")
     return songs
 
 def list_into_file(songs):
@@ -26,3 +26,18 @@ def list_into_file(songs):
     with open('songs.txt', 'w', encoding="UTF-8") as songsFile:
         for track in songs:
             songsFile.write(f"{track}\n")
+
+def artists(sjsonfile, index):
+    """Generates a string with a list of artists in a given index in a sjson.
+
+    Args:
+        sjsonfile (string): Entire sjson from Spotify
+        index (int): Index of the track from which will be extracted the artists
+
+    Returns:
+        string: A string containing a list of the song's artists separated by a space
+    """
+    artists = ""
+    for art in json.loads(sjsonfile)[index]['track']['artists']:
+        artists += " " + art['name']
+    return artists
