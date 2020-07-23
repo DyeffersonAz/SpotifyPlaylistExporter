@@ -9,12 +9,12 @@ def parse(sjsonfile):
         sjsonfile (string): A string of a json file containing songs and all details provided by Spotify
 
     Returns:
-        list: List of strings of songs followed by the first artist
+        list: List of lists of strings of songs as the first element followed by a string of the song's artists as the second element
     """
     jsonfile = json.loads(sjsonfile)
     songs = []
     for track in jsonfile:
-        songs.append(f"{track['track']['name']} {artists(sjsonfile, jsonfile.index(track))}")
+        songs.append([track['track']['name'], artists(sjsonfile, jsonfile.index(track))])
     return songs
 
 def list_into_file(songs):
