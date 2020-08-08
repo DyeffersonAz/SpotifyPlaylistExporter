@@ -12,6 +12,7 @@ def btnGetPressed():
 def btnSetFolderPressed():
     global targetDirectory
     targetDirectory = tkinter.filedialog.askdirectory()
+    Label(root, text=f"Selected directory: \"{targetDirectory}\"").grid(row=2, column=2)
 
 root = Tk() # Creates the window
 
