@@ -4,11 +4,12 @@ import configparser
 import spotipy
 from spotipy.oauth2 import SpotifyOAuth, SpotifyClientCredentials
 
-def auth(username):
+def auth(username, source="cmd"): # I WILL USE THIS ARGUMENT IN THE FUTURE FOR NOT HAVING TO PASTE REDIRECT URI ON CMD
     """Authenticates a user based in its username and uses a config.cfg file containing the client ID, client secret and redirection URI
 
     Args:
         username (string): The user's name (or code if registered with Facebook)
+        source (string, optional): Where is the code being called from. Possible values are 'cmd' and 'gui'
     """
     print("Autenticando Usuário...")
     scope = "user-library-read"

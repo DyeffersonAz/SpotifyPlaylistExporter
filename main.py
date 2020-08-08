@@ -6,10 +6,10 @@ import tracks_parser
 import downloader
 import configparser
 
-def getSongs(userID):
+def getSongs(userID, directory):
     spotifier.auth(userID)
     savedTracks = spotifier.get_saved_tracks()
-    downloader.download_list(tracks_parser.parse(json.dumps(savedTracks)))
+    downloader.download_list(tracks_parser.parse(json.dumps(savedTracks)), directory=directory)
 
 
 
