@@ -132,3 +132,4 @@ songs
 
 #Program-specific ignores
 *.mp3
+images/Projects*
