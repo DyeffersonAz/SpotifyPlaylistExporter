@@ -38,7 +38,7 @@ lblSetFolder.grid(row=2, column=0)
 btnSetFolder = Button(root, text="Select Folder", command=btnSetFolderPressed)
 btnSetFolder.grid(row=2, column=1)
 
-btnGet = Button(root, text="Obter músicas", command=btnGetPressed)
+btnGet = Button(root, text="Get songs", command=btnGetPressed)
 btnGet.grid(row=3, columnspan=2)
 
 lblCopyright = Label(root, text="Copyright Dyefferson AzevedoⒸ 2020")

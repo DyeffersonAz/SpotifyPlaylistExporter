@@ -11,7 +11,7 @@ def auth(username, source="cmd"): # I WILL USE THIS ARGUMENT IN THE FUTURE FOR N
         username (string): The user's name (or code if registered with Facebook)
         source (string, optional): Where is the code being called from. Possible values are 'cmd' and 'gui'
     """
-    print("Autenticando Usuário...")
+    print("Authing user...")
     scope = "user-library-read"
 
     config = configparser.ConfigParser()
@@ -22,7 +22,7 @@ def auth(username, source="cmd"): # I WILL USE THIS ARGUMENT IN THE FUTURE FOR N
 
     global sp
     sp = spotipy.Spotify(auth_manager=SpotifyOAuth(scope=scope, client_id=client_id, client_secret=client_secret, redirect_uri=redirect_uri, username=username))
-    print("Usuário autenticado com sucesso!")
+    print("User authenticated succesfully!")
 
 def get_saved_tracks():
     """Gets a list of dictionaries containing the loved songs on Spotify and returns it
@@ -30,11 +30,11 @@ def get_saved_tracks():
     Returns:
         list: List of dictionaries containing all the information needed.
     """
-    print("Vamos pegar a lista das suas favoritas...")
+    print("We'll get your favorite songs' list.")
     results = sp.current_user_saved_tracks()
     tracks = results['items']
     while results['next']:
         results = sp.next(results)
         tracks.extend(results['items'])
-    print("Conseguimos a tal lista!")
+    print("We got the list!")
     return tracks

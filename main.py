@@ -14,7 +14,7 @@ def getSongs(userID, directory):
 
 
 def main():
-    print("Vamos começar a baixar suas favoritas, mas primeiro vamos preparar algumas coisas...")
+    print("We'll download your songs, we only need to set some things up first...")
     cnfg = configparser.ConfigParser()
 
     cnfg.read("config.cfg")
@@ -22,7 +22,7 @@ def main():
     spotifier.auth(cnfg.get("SPOTIFY", "USERNAME")) #Authing with Spotify
 
     savedTracks = spotifier.get_saved_tracks() #Getting a list of dictionaries from Spotify
-    print("Pronto, agora vamos começar a baixar!")
+    print("Alright, now we'll start downloading!")
     downloader.download_list(tracks_parser.parse(json.dumps(savedTracks))) # Downloads from a list of songs dumped in a json string and parsed by tracks-parser.py
 
 if __name__ == "__main__":
