@@ -127,7 +127,7 @@ dmypy.json
 #privacy ignores
 *cache*
 tokens.py
-*.cfg
+*credentials.cfg*
 
 #Program-specific ignores
 *.mp3

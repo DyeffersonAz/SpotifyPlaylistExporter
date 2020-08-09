@@ -1,6 +1,7 @@
 from tkinter import *
 import tkinter.messagebox
 import tkinter.filedialog
+import configparser
 from pathlib import Path
 from os import name as osname
 from main import getSongs
