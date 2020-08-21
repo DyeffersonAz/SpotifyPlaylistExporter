@@ -15,7 +15,7 @@ def auth(username, source="cmd"): # I WILL USE THIS ARGUMENT IN THE FUTURE FOR N
     scope = "user-library-read"
 
     config = configparser.ConfigParser()
-    config.read('config.cfg')
+    config.read('credentials.cfg')
     client_id = config.get('SPOTIFY', 'CLIENT_ID')
     client_secret = config.get('SPOTIFY', 'CLIENT_SECRET')
     redirect_uri = config.get('SPOTIFY', 'REDIRECT_URI')
