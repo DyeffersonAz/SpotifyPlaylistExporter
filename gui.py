@@ -1,10 +1,12 @@
-from tkinter import *
-import tkinter.messagebox
-import tkinter.filedialog
 import configparser
-from pathlib import Path
+import tkinter.filedialog
+import tkinter.messagebox
 from os import name as osname
+from pathlib import Path
+from tkinter import *
+
 from main import getSongs
+
 
 def btnGetPressed():
     tkinter.messagebox.showinfo(message="You may be asked for putting the redirect url on terminal, put it there and the software will start!")
@@ -12,8 +14,8 @@ def btnGetPressed():
 
 def btnSetFolderPressed():
     global targetDirectory
-    targetDirectory = tkinter.filedialog.askdirectory()
-    Label(root, text=f"Selected directory: \"{targetDirectory}\"").grid(row=2, column=2)
+    targetDirectory = tkinter.filedialog.askdirectory(initialdir=txtFolder.get())
+    txtFolder.insert(0, targetDirectory)
 
 root = Tk() # Creates the window
 
@@ -36,11 +38,14 @@ txtUserID.grid(row=1, column=1)
 lblSetFolder = Label(root, text="Select the folder where the songs will go:", font=simpleFont)
 lblSetFolder.grid(row=2, column=0)
 
+txtFolder = Entry(root)
+txtFolder.grid(row=2, column=1)
+
 btnSetFolder = Button(root, text="Select Folder", command=btnSetFolderPressed)
-btnSetFolder.grid(row=2, column=1)
+btnSetFolder.grid(row=2, column=2)
 
 btnGet = Button(root, text="Get songs", command=btnGetPressed)
-btnGet.grid(row=3, columnspan=2)
+btnGet.grid(row=3, columnspan=3)
 
 lblCopyright = Label(root, text="Copyright Dyefferson AzevedoⒸ 2020")
 lblCopyright.grid(row=4, columnspan=4)
