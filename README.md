@@ -12,11 +12,7 @@ To install required libraries, run this command on your terminal command line:
 pip install -r requirements.txt
 ```
 
-If it gives an error, install manually these packages:
-
-* spotipy
-* youtube_dl
-* tkinter *(coming in future updates)*
+This line will install the required packages. To see the list of them, open the file, there will a package per line.
 
 After that, you need to install FFMPEG, to convert your files to mp3. If you don't, the program will use webm or other other format instead.
 
